@@ -1,11 +1,43 @@
 import { Router , Request , Response } from 'express' ;
 import { returnApiJson  , validarPassagenParametros , 	validarExistenciaBody  } from '../utils/funcoesDefalt.js';
 import { ProdutoModel } from '../models/ProdutoModel.js';
+import { swaggerUi, specs } from "../swagger.js";
 
 export const routerPOST = Router(); 
 
 
 // http://localhost:3000/api/produtos
+/**
+ * @swagger
+ * /api/produtos:
+ *   post:
+ *     summary: Cria um novo produto
+ *     tags: [Produtos]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           example:
+ *             nome: "Refrigerante Coca Cola"
+ *             valor: 10.5
+ *             categoria: "Cozinha"
+ *     responses:
+ *       201:
+ *         description: Produto criado com sucesso
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Produto criado com sucesso"
+ *               produto:
+ *                 id: 1
+ *                 nome: "Refrigerante Coca Cola"
+ *                 valor: 10.5
+ *                 categoria: "Cozinha"
+ *       400:
+ *         description: Corpo da requisição inválido ou parâmetros ausentes
+ *       500:
+ *         description: Erro interno ao criar o produto
+ */
 
 routerPOST.post("/api/produtos", async (req: Request, res: Response) => {
 
@@ -30,8 +62,6 @@ routerPOST.post("/api/produtos", async (req: Request, res: Response) => {
 		    );
 
 	}
-
-
 });
 
 

@@ -1,9 +1,52 @@
 import { Router , Request  , Response} from 'express';
 import { returnApiJson  , validarPassagenParametros , validarExistenciaBody } from '../utils/funcoesDefalt.js';
 import { ProdutoModel } from '../models/ProdutoModel.js';
-
-
 export const routerDELETE = Router();
+
+
+
+/**
+ * @swagger
+ * /api/produtos/{id}:
+ *   delete:
+ *     summary: Remove um produto existente pelo ID
+ *     tags: [Produtos]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID do produto que será deletado
+ *         schema:
+ *           type: integer
+ *           example: 1
+ *     responses:
+ *       200:
+ *         description: Produto deletado com sucesso
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Produto deletado com sucesso"
+ *       400:
+ *         description: ID ausente ou produto não encontrado
+ *         content:
+ *           application/json:
+ *             examples:
+ *               idAusente:
+ *                 summary: ID não informado
+ *                 value:
+ *                   message: "Parâmetro 'id' ausente. Essa rota exige um ID para funcionar."
+ *               produtoNaoEncontrado:
+ *                 summary: Produto não encontrado
+ *                 value:
+ *                   message: "Produto não encontrado"
+ *       500:
+ *         description: Erro interno ao deletar o produto
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Erro ao deletar o produto"
+ */
+
 
 routerDELETE.delete("/api/produtos/:id", async  (req: Request, res: Response): Promise<void> => {
 

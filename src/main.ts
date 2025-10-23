@@ -5,6 +5,8 @@ import { routerGET } from './controllers/routsGet.js';
 import { routerPOST } from './controllers/routsPost.js';
 import { routerPUT } from './controllers/routsPut.js';
 import { routerDELETE } from './controllers/routsDelete.js';
+import { setupSwagger } from "./swagger.js";
+
 
 
 const app = express();
@@ -17,11 +19,13 @@ app.use('/', routerPOST);
 app.use('/', routerPUT); 
 app.use('/', routerDELETE); 
 
+setupSwagger(app);
+
 
 
 
 app.listen(PORT, (): void => {
-  console.log(`  Servidor iniciado na porta ${PORT}`);
+  console.log(`## Servidor iniciado na porta ${PORT}`);
 });
 
 
