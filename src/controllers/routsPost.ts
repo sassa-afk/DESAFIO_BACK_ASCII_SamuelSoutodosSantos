@@ -6,7 +6,6 @@ import { swaggerUi, specs } from "../swagger.js";
 export const routerPOST = Router(); 
 
 
-// http://localhost:3000/api/produtos
 /**
  * @swagger
  * /api/produtos:
@@ -38,7 +37,7 @@ export const routerPOST = Router();
  *       500:
  *         description: Erro interno ao criar o produto
  */
-
+// http://localhost:3000/api/produtos
 routerPOST.post("/api/produtos", async (req: Request, res: Response) => {
 
     if (!validarExistenciaBody( req.body, res)) return;
@@ -52,13 +51,20 @@ routerPOST.post("/api/produtos", async (req: Request, res: Response) => {
 	    return returnApiJson(
 	    	res, 
 	    	201, 
-	    	{ message: "Produto criado com sucesso", produto }
+	    	{ 
+	    		message: "Produto criado com sucesso", 
+	    		produto: {
+				        id: produto.id,
+				        nome: produto.nome,
+				        valor: produto.valor,
+				        categoria: produto.categoria,
+				      },
+
+	    	}
 	    );
 	}catch( err ){
 		    return returnApiJson(
-		    	res, 
-		    	500, 
-		    	{ message: "Erro ao criar produto", err }
+		    	res, 500, { message: "Erro ao criar produto", err }
 		    );
 
 	}
