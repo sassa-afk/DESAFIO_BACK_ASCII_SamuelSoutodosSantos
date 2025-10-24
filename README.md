@@ -3,7 +3,7 @@
 - Atualmente estudo e crio projetos com intenção aplicar meus conhecimentos passados ao longo de minha experiência academica e no mercado de trabalho 
 - Você consegue chegar até mim através do email samuelsouto21@gmail.com .
 
-# Desafio ASCII backend APIrest
+# Desafio ASCII backend API rest
 ---
 
 Este projeto é um desafio técnico, com o objetivo de avaliar habilidades em desenvolvimento backend, organização de código e boas práticas de arquitetura. A aplicação consiste em uma API REST construída em Node.js com TypeScript, projetada para ser escalável, modular e de fácil manutenção.
