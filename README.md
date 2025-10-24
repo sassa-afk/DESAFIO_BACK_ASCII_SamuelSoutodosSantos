@@ -125,22 +125,19 @@ Com essa camada, a aplicação mantém consistência na validação de dados e r
 
 **Arquivos importante de configutação de ambiente do servidor**
 
-node/ → Diretório padrão do Node.js, normalmente contém dependências e arquivos gerenciados pelo NPM.
-
-render.yaml → Arquivo de configuração para deploy em plataformas como Render, definindo ambiente, build e start da aplicação.
-
-service/ → Camada onde fica a lógica de negócio da aplicação, responsável por processar dados antes de enviar à camada de Controller ou ao banco.
-
-swagger.ts → Configuração do Swagger, usada para documentar e testar os endpoints da API.
-
-tsc/ → Diretório de saída ou configuração do TypeScript Compiler, gerando os arquivos JavaScript compilados.
-
-main.ts → Ponto de entrada da aplicação, inicializa servidor, rotas, middlewares e conexão com o banco.
+- node/ → Diretório padrão do Node.js, normalmente contém dependências e arquivos gerenciados pelo NPM.
+- render.yaml → Arquivo de configuração para deploy em plataformas como Render, definindo ambiente, build e start da aplicação.
+- service/ → Camada onde fica a lógica de negócio da aplicação, responsável por processar dados antes de enviar à camada de Controller ou ao banco.
+- swagger.ts → Configuração do Swagger, usada para documentar e testar os endpoints da API.
+- tsc/ → Diretório de saída ou configuração do TypeScript Compiler, gerando os arquivos JavaScript compilados.
+- main.ts → Ponto de entrada da aplicação, inicializa servidor, rotas, middlewares e conexão com o banco.
 
 # Banco de dados 
 ---
+
 O banco de dados PostgreSQL foi instalado localmente na máquina de desenvolvimento.No mesmo foi criada uma tabela simples chamada produtos para a aplicação, com as seguintes configurações:
 
+---
 	  Column   |         Type          | Collation | Nullable |               Default                |
 	-----------|-----------------------|-----------|----------|--------------------------------------| 
 	 id        | integer               |           | not null | nextval('produtos_id_seq'::regclass) |
@@ -150,8 +147,10 @@ O banco de dados PostgreSQL foi instalado localmente na máquina de desenvolvime
 
 	Indexes:
 	    "produtos_pkey" PRIMARY KEY, btree (id)
+---
 
  **Tabela acessos**
+
 ---
 	CREATE TABLE produtos (
 	    id SERIAL PRIMARY KEY, 
@@ -249,8 +248,8 @@ O banco de dados PostgreSQL foi instalado localmente na máquina de desenvolvime
 # Possiveis melhorias futuras
 ---
 
-> Adicionar uma camada de testes automatizados para garantir a estabilidade da aplicação.
-> Criar uma tabela de usuários e senhas para controle de autenticação.
-> Implementar JWT (JSON Web Token) para autenticação e autorização segura nas APIs.
-> Desenvolver uma API para cadastro de usuários e gerenciamento de credenciais.
-> Criar uma API de geração de token JWT, permitindo o acesso autenticado às demais rotas.
+- Adicionar uma camada de testes automatizados para garantir a estabilidade da aplicação.
+- Criar uma tabela de usuários e senhas para controle de autenticação.
+- Implementar JWT (JSON Web Token) para autenticação e autorização segura nas APIs.
+- Desenvolver uma API para cadastro de usuários e gerenciamento de credenciais.
+- Criar uma API de geração de token JWT, permitindo o acesso autenticado às demais rotas.
