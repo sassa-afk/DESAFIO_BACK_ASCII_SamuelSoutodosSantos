@@ -22,26 +22,26 @@ No momento as APIS  estão disponiveis no diretorio GitHub e funcionando no endp
 # Tecnologia utilizadsa
 ---
 
-├── Node.js (Servidor)
-├── Postgres (Banco de dados)
-├── Swagger (documentação)
-└── Sequelize (ORM)
+	├── Node.js (Servidor)
+	├── Postgres (Banco de dados)
+	├── Swagger (documentação)
+	└── Sequelize (ORM)
 
 
 # Depedencias instaladas no node.js
 ---
 
-├── @types/express@5.0.3s
-├── @types/swagger-jsdoc@6.0.4
-├── @types/swagger-ui-express@4.1.8
-├── express@5.1.0
-├── donten@5.9.3
-├── pg@8.16.3
-├── sequelize@6.37.7
-├── swagger-jsdoc@6.2.8
-├── swagger-ui-express@5.0.1
-├── ts-node-dev@2.0.0
-└── typescript@5.9.3
+	├── @types/express@5.0.3s
+	├── @types/swagger-jsdoc@6.0.4
+	├── @types/swagger-ui-express@4.1.8
+	├── express@5.1.0
+	├── donten@5.9.3
+	├── pg@8.16.3
+	├── sequelize@6.37.7
+	├── swagger-jsdoc@6.2.8
+	├── swagger-ui-express@5.0.1
+	├── ts-node-dev@2.0.0
+	└── typescript@5.9.3
 
 
 
