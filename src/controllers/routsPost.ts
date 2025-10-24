@@ -53,12 +53,7 @@ routerPOST.post("/api/produtos", async (req: Request, res: Response) => {
 	    	201, 
 	    	{ 
 	    		message: "Produto criado com sucesso", 
-	    		produto: {
-				        id: produto.id,
-				        nome: produto.nome,
-				        valor: produto.valor,
-				        categoria: produto.categoria,
-				      },
+	    		produto:  produto.get(),
 
 	    	}
 	    );
