@@ -12,6 +12,11 @@ O foco principal do projeto é criar endpoints para gerenciar produtos, incluind
 
 No momento as APIS  estão disponiveis no diretorio GitHub e funcionando no endpoint free do render documentado e acessivo atraves do swagger no link: https://api-node-ts-kuin.onrender.com/api-docs/
 
+<img width="1034" height="626" alt="image" src="https://github.com/user-attachments/assets/9fa0b64a-dd70-4789-adf1-eac04d954f99" />
+
+<img width="1714" height="788" alt="image" src="https://github.com/user-attachments/assets/25782c46-979a-4629-b8ea-51e84d9a72b6" />
+
+
 **OBS:**
 
 - Este projeto está hospedado em um servidor gratuito Render, o qual entra em modo de hibernação (sleep mode) após um período de inatividade.
@@ -125,11 +130,11 @@ Com essa camada, a aplicação mantém consistência na validação de dados e r
 
 **Arquivos importante de configutação de ambiente do servidor**
 
-- node/ → Diretório padrão do Node.js, normalmente contém dependências e arquivos gerenciados pelo NPM.
+- node / → Diretório padrão do Node.js, normalmente contém dependências e arquivos gerenciados pelo NPM.
 - render.yaml → Arquivo de configuração para deploy em plataformas como Render, definindo ambiente, build e start da aplicação.
-- service/ → Camada onde fica a lógica de negócio da aplicação, responsável por processar dados antes de enviar à camada de Controller ou ao banco.
+- service / → Camada onde fica a lógica de negócio da aplicação, responsável por processar dados antes de enviar à camada de Controller ou ao banco.
 - swagger.ts → Configuração do Swagger, usada para documentar e testar os endpoints da API.
-- tsc/ → Diretório de saída ou configuração do TypeScript Compiler, gerando os arquivos JavaScript compilados.
+- tsc / → Diretório de saída ou configuração do TypeScript Compiler, gerando os arquivos JavaScript compilados.
 - main.ts → Ponto de entrada da aplicação, inicializa servidor, rotas, middlewares e conexão com o banco.
 
 # Banco de dados 
@@ -173,26 +178,28 @@ O banco de dados PostgreSQL foi instalado localmente na máquina de desenvolvime
 	#========================================================================
 	# Cria pastas principais :
 
+	mkdir src
+	cd src
 	mkdir controllers database dtos models node service tsc utils
 
 	#========================================================================
 	# Cria arquivos dentro de cada pasta :
 
-	touch controllers/routsDelete.ts
-	touch controllers/routsGet.ts
-	touch controllers/routsPost.ts
-	touch controllers/routsPut.ts
-	touch database/index.ts
-	touch dtos/ProdutoDTO.ts
-	touch models/ProdutoModel.ts
-	touch utils/funcoesDefalt.ts
+	nano controllers/routsDelete.ts
+	nano controllers/routsGet.ts
+	nano controllers/routsPost.ts
+	nano controllers/routsPut.ts
+	nano database/index.ts
+	nano dtos/ProdutoDTO.ts
+	nano models/ProdutoModel.ts
+	nano utils/funcoesDefalt.ts
 
 	#========================================================================
 	# Cria arquivos na raiz : 
 
-	touch main.ts
-	touch render.yaml
-	touch swagger.ts
+	nano main.ts
+	nano render.yaml
+	nano swagger.ts
 
 	#========================================================================
 	# Instalado o node e depencia dos serviços : 
@@ -227,22 +234,18 @@ O banco de dados PostgreSQL foi instalado localmente na máquina de desenvolvime
 
 
 
-
-
-
  
 # Apis construidas e seus retornos
 ---
 
 
-| Rota                 | Descrição                             | Método     |
-| -------------------- | ------------------------------------- | ---------- |
-| `/api/produtos`      | Lista todos os produtos               | **GET**    |
-| `/api/produtos/{id}` | Busca um produto pelo ID              | **GET**    |
-| `/api/produtos`      | Cria um novo produto                  | **POST**   |
-| `/api/produtos/{id}` | Atualiza as informações de um produto | **PUT**    |
-| `/api/produtos/{id}` | Remove um produto                     | **DELETE** |
-
+| Rota                 | Descrição                             | Método     | Parâmetros Necessários 																 |
+| -------------------- | ------------------------------------- | ---------- | ---------------------------------------------------------------------------------------|
+| `/api/produtos`      | Lista todos os produtos               | **GET**    | Nenhum                																 |
+| `/api/produtos/{id}` | Busca um produto pelo ID              | **GET**    | **Query:** `id` válido existente no banco de dados 									 |
+| `/api/produtos`      | Cria um novo produto                  | **POST**   | **Body:** dados do produto (ex: nome, preço, quantidade) 								 |
+| `/api/produtos/{id}` | Atualiza as informações de um produto | **PUT**    | **Query:** `id` válido do produto <br> **Body:** campo(s) e valor(es) a atualizar 	 |
+| `/api/produtos/{id}` | Remove um produto                     | **DELETE** | **Query:** `id` válido do produto a ser removido 										 |
 
 
 # Possiveis melhorias futuras
